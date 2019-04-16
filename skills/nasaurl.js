@@ -2,7 +2,7 @@ var request = require('request');
 module.exports = function (controller) {
 
     
-    controller.hears([/^nasaurl$/], 'direct_message,direct_mention', function (bot, message) {
+    controller.hears([/^NASAURL$/], 'direct_message,direct_mention', function (bot, message) {
 
         bot.startConversation(message, function (err, convo) {
             convo.say('Ok lets check the stars');
