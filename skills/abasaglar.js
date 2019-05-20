@@ -3,7 +3,7 @@ module.exports = function (controller) {
 controller.hears([/^LANG.*$/], 'direct_message,direct_mention', function (bot, message) {
 //var word = message.response.log.message
 console.log(message)
-var ABASA = [1]
+var ABASA = [$1]
 console.log()
 const res = (new Date()).toISOString();
         bot.startConversation(message, function (err, convo) {
