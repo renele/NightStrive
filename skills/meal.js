@@ -19,10 +19,16 @@ const res = (new Date()).toISOString();
                'API-SECRET': '75c5b0956523255b2c400b8174e58221f9633c02' },
             body: 
              { enteredBy: 'botKit',
+               insulinName: 'humalog',
+               insulinCurve: 'bilinear',
+               insulinID: '1556899407954052d675cdf6',
+               insulinType: 'mittelschnell wirkend',
+               carbDelayTime: 20,
                eventType: 'Meal Bolus',
                carbs: Karbs,
                insulin: Humalog,
                created_at: res,
+               dia: 4,
                },
             json: true };
           
