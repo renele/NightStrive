@@ -1,7 +1,7 @@
 var mongoClient = require("mongodb").MongoClient;
 var server = "mongodb://heroku_06f8l08c:nfr62mmhsa9vg04n3vovlo9eb7@ds145474.mlab.com:45474/heroku_06f8l08c";
 var oldinsulin;
-var addedinsulin = 9;
+var addedinsulin = Humalog ;
 var today = new Date().toISOString();
 mongoClient.connect(server, { useNewUrlParser: true }, function(error, db)  { 
 if(error)
