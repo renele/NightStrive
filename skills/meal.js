@@ -1,5 +1,5 @@
 var request = require('request');
-var insulinreducer = require('./insulin-reducer');
+var insulinreducer = require('./insulinreducer.js');
 module.exports = function (controller) {
 controller.hears([/^MEAL.*$/], 'direct_message,direct_mention', function (bot, message) {
 //var word = message.response.log.message
