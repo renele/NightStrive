@@ -1,4 +1,5 @@
 var request = require('request');
+var insulinreducer = require('./insulin-reducer');
 module.exports = function (controller) {
 controller.hears([/^MEAL.*$/], 'direct_message,direct_mention', function (bot, message) {
 //var word = message.response.log.message
@@ -31,6 +32,7 @@ const res = (new Date()).toISOString();
                dia: 4,
                },
             json: true };
+            insulinreducer(Humalog);
           
           request(options, function (error, response, body) {
             if (error) throw new Error(error);
