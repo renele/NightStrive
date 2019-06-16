@@ -18,9 +18,11 @@ else
     dbo.collection("insulin").findOne({}, {sort:{$natural:-1}}, function(err, result) {
       if (err) throw err;
       console.log(result.insulinleft);
-      oldinsulin = result.insulinleft;
+      console.log(addedinsulin)
+      var oldinsulin = result.insulinleft;
       oldinsulin = parseInt(oldinsulin);
-      console.log("ok happy days")
+      console.log("ok happy days Thomas")
+      var addedinsulin = parseInt(addedinsulin);
       var remaininginsulin = oldinsulin - addedinsulin ;
       console.log(remaininginsulin)
       if (!Number.isInteger(remaininginsulin)) throw err;
