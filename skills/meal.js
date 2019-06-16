@@ -1,5 +1,46 @@
 var request = require('request');
-var insulinreducer = require('./insulinreducer.js');
+var mongoClient = require("mongodb").MongoClient;
+var server = "mongodb://heroku_06f8l08c:nfr62mmhsa9vg04n3vovlo9eb7@ds145474.mlab.com:45474/heroku_06f8l08c";
+var oldinsulin;
+var today = new Date().toISOString();
+var insulinreducer = function(addedinsulin) {
+
+
+module.exports = function (addedinsulin) {
+console.log("starting reducer")
+console.log(addedinsulin)
+addedinsulin = parseInt(addedinsulin);
+mongoClient.connect(server, { useNewUrlParser: true }, function(error, db)  { 
+if(error)
+console.log("Error while connecting to database: ", error);
+else
+//console.log("Connection established successfully");
+    //perform operations here
+
+    var dbo = db.db("heroku_06f8l08c");
+    dbo.collection("insulin").findOne({}, {sort:{$natural:-1}}, function(err, result) {
+      if (err) throw err;
+      console.log(result.insulinleft);
+      console.log(addedinsulin)
+      var oldinsulin = result.insulinleft;
+      oldinsulin = parseInt(oldinsulin);
+      console.log("ok happy days Thomas")
+      var addedinsulin = parseInt(addedinsulin);
+      var remaininginsulin = oldinsulin - addedinsulin ;
+      console.log(remaininginsulin)
+      if (!Number.isInteger(remaininginsulin)) throw err;
+      var myobj = { type: "Insulin", insulin: "Humalog", insulinleft: remaininginsulin, date: today, };
+      dbo.collection("insulin").insertOne(myobj, function(err, res) {
+      if (err) throw err;
+      console.log("1 document inserted");
+      db.close();
+      
+    });
+    });
+  });
+}
+}
+        
 module.exports = function (controller) {
 controller.hears([/^MEAL.*$/], 'direct_message,direct_mention', function (bot, message) {
 //var word = message.response.log.message
