@@ -4,6 +4,8 @@ var oldinsulin;
 var today = new Date().toISOString();
 
 module.exports = function (addedinsulin) {
+console.log("starting reducer")
+console.log(addedinsulin)
 addedinsulin = parseInt(addedinsulin);
 mongoClient.connect(server, { useNewUrlParser: true }, function(error, db)  { 
 if(error)
