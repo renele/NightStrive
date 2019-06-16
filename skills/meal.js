@@ -8,7 +8,6 @@ var insulinreducer = function (addedinsulin) {
 
   console.log("starting reducer")
   console.log(addedinsulin)
-  addedinsulin = parseInt(addedinsulin);
   mongoClient.connect(server, { useNewUrlParser: true }, function (error, db) {
     if (error)
       console.log("Error while connecting to database: ", error);
@@ -22,9 +21,7 @@ var insulinreducer = function (addedinsulin) {
       console.log(result.insulinleft);
       console.log(addedinsulin)
       var oldinsulin = result.insulinleft;
-      oldinsulin = parseInt(oldinsulin);
       console.log("ok happy days Thomas")
-      var addedinsulin = parseInt(addedinsulin);
       var remaininginsulin = oldinsulin - addedinsulin;
       console.log(remaininginsulin)
       if (!Number.isInteger(remaininginsulin)) throw err;
