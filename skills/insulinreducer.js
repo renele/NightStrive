@@ -19,6 +19,7 @@ else
       if (err) throw err;
       console.log(result.insulinleft);
       oldinsulin = result.insulinleft;
+      oldinsulin = parseInt(oldinsulin);
       console.log("ok happy days")
       var remaininginsulin = oldinsulin - addedinsulin ;
       console.log(remaininginsulin)
