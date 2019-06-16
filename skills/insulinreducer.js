@@ -4,7 +4,7 @@ var oldinsulin;
 var today = new Date().toISOString();
 
 module.exports = function (addedinsulin) {
-
+addedinsulin = parseInt(addedinsulin);
 mongoClient.connect(server, { useNewUrlParser: true }, function(error, db)  { 
 if(error)
 console.log("Error while connecting to database: ", error);
@@ -17,7 +17,10 @@ else
       if (err) throw err;
       console.log(result.insulinleft);
       oldinsulin = result.insulinleft;
+      console.log("ok happy days")
       var remaininginsulin = oldinsulin - addedinsulin ;
+      console.log(remaininginsulin)
+      if (!Number.isInteger(remaininginsulin)) throw err;
       var myobj = { type: "Insulin", insulin: "Humalog", insulinleft: remaininginsulin, date: today, };
       dbo.collection("insulin").insertOne(myobj, function(err, res) {
       if (err) throw err;
