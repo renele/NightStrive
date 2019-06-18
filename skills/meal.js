@@ -25,7 +25,7 @@ var insulinreducer = function (addedinsulin) {
       var remaininginsulin = oldinsulin - addedinsulin;
       console.log(remaininginsulin)
       if (!Number.isInteger(remaininginsulin)) throw err;
-      var myobj = { type: "Bolous-Insulin", insulin: "Humalog", insulinleft: remaininginsulin, date: today, };
+      var myobj = { type: "Bolus Insulin", insulin: "Humalog", insulinleft: remaininginsulin, date: today, };
       dbo.collection("humalog").insertOne(myobj, function (err, res) {
         if (err) throw err;
         console.log("1 document inserted");
