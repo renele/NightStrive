@@ -16,7 +16,7 @@ var insulinreducer = function (addedinsulin) {
       //perform operations here
 
       var dbo = db.db("heroku_06f8l08c");
-    dbo.collection("insulin").findOne({}, { sort: { $natural: -1 } }, function (err, result) {
+    dbo.collection("humalog").findOne({}, { sort: { $natural: -1 } }, function (err, result) {
       if (err) throw err;
       console.log(result.insulinleft);
       console.log(addedinsulin)
@@ -25,8 +25,8 @@ var insulinreducer = function (addedinsulin) {
       var remaininginsulin = oldinsulin - addedinsulin;
       console.log(remaininginsulin)
       if (!Number.isInteger(remaininginsulin)) throw err;
-      var myobj = { type: "Insulin", insulin: "Humalog", insulinleft: remaininginsulin, date: today, };
-      dbo.collection("insulin").insertOne(myobj, function (err, res) {
+      var myobj = { type: "humalog", insulin: "Humalog", insulinleft: remaininginsulin, date: today, };
+      dbo.collection("humalog").insertOne(myobj, function (err, res) {
         if (err) throw err;
         console.log("1 document inserted");
         db.close();
