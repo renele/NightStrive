@@ -37,6 +37,7 @@ module.exports = function (controller) {
 controller.hears([/^LANG.*$/], 'direct_message,direct_mention', function (bot, message) {
 //var word = message.response.log.message
 console.log(message)
+var word = message.text.split(" ")
 var ABASA = word[1]
 console.log()
 const res = (new Date()).toISOString();
