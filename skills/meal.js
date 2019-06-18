@@ -2,7 +2,6 @@ var request = require('request');
 var mongoClient = require("mongodb").MongoClient;
 var server = "mongodb://heroku_06f8l08c:nfr62mmhsa9vg04n3vovlo9eb7@ds145474.mlab.com:45474/heroku_06f8l08c";
 var oldinsulin;
-var remaininginsulin;
 var today = new Date().toISOString();
 var insulinreducer = function (addedinsulin) {
 
@@ -84,7 +83,7 @@ module.exports = function (controller) {
       });
 
 
-      convo.say('ok entered ' + Karbs + ' Kohlenhydrathe and ' + Humalog + ' Einheiten Insulin and you have now ' + remaininginsulin + 'Einheiten Insulin left in your Pen.', function (response, convo) {
+      convo.say('ok entered ' + Karbs + ' Kohlenhydrathe and ' + Humalog + ' Einheiten Insulin.', function (response, convo) {
 
         convo.next();
       });
