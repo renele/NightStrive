@@ -18,7 +18,7 @@ module.exports = function (controller, bot) {
         "legal-owner": "Cisco DevNet <https://developer.cisco.com>",
 
         // Contact name for support
-        "support-contact": "Stève Sfartz <mailto:stsfartz@cisco.com>",
+        "support-contact": "Rene Klose <mailto:reklose@cisco.com>",
 
         // Messaging platform
         // [WORKAROUND] overriding Botkit's integrated support temporarly as 'ciscospark' is still returned
