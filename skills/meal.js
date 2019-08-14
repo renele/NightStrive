@@ -44,7 +44,7 @@ var insulinreducer = function (addedinsulin){
   )
 }
 
-var nightscoutpost = function (Karbs, Humalog){
+var nightscoutpost = function (Karbs, Humalog, Notiz){
   var options = {
     method: 'POST',
     url: 'https://rkt1d.herokuapp.com/api/v1/treatments',
@@ -67,6 +67,7 @@ var nightscoutpost = function (Karbs, Humalog){
       insulin: Humalog,
       created_at: new Date().toISOString(),
       dia: 4,
+      notes: Notiz,
     },
     json: true
   };
@@ -82,13 +83,14 @@ module.exports = function (controller) {
     var word = message.text.split(" ")
     var Karbs = word[1]
     var Humalog = word[2]
+    var Notiz = word[3]
     console.log()
       bot.startConversation(message, function (err, convo) {
       convo.say('Ok lets puts this into the diary');
 
       Promise.all([
         insulinreducer(Humalog),
-        nightscoutpost(Karbs, Humalog)
+        nightscoutpost(Karbs, Humalog, Notiz)
       ])
       .then((insulinreducerResponse) => {
         console.log(insulinreducerResponse[0])
