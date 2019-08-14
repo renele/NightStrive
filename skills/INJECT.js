@@ -17,8 +17,7 @@ console.log()
                'Content-Type': 'application/json',
                'API-SECRET': '75c5b0956523255b2c400b8174e58221f9633c02' },
             body: 
-             { _id: '1919191919191912234',
-               enteredBy: 'botKit',
+             { enteredBy: 'botKit',
                eventType: 'Meal Bolus',
                insulin: Humalog,
                created_at: '2019-04-02T20:42:49.000Z',
