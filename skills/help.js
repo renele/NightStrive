@@ -6,9 +6,10 @@ module.exports = function (controller) {
     controller.hears([/^help$/], 'direct_message,direct_mention', function (bot, message) {
         var text = "Here are my  Medical skills:";
         text += "\n- " + bot.appendMention(message, "INJECT") + ": Entr amount of Insulin to DB";
-        text += "\n- " + bot.appendMention(message, "MEAL") + ": Enter amount of Carbs to DB";
+        text += "\n- " + bot.appendMention(message, "MEAL") + ": Enter amount of Carbs and Insulin to DB";
         text += "\n- " + bot.appendMention(message, "BG") + ": see current Sugar Level";
         text += "\n- " + bot.appendMention(message, "REPORT") + ": see last to Days of BG Levels";
+        text += "\n- " + bot.appendMention(message, "SNACK") + ": Enter amount of Carbs to add to DB";
         text += "\n\nI also understand some Demo Functions:";
         text += "\n- " + bot.appendMention(message, "NASA") + ": see NASA Image of the DAY";
         text += "\n- " + bot.appendMention(message, "NASAURL") + ": see NASA Image of the DAY unincluding link";
