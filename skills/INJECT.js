@@ -20,7 +20,6 @@ console.log()
              { enteredBy: 'botKit',
                eventType: 'Meal Bolus',
                insulin: Humalog,
-               created_at: '2019-04-02T20:42:49.000Z',
                },
             json: true };
           
@@ -31,7 +30,7 @@ console.log()
           });
               
                 
-                convo.say('ok entered ' + Humalog +' Einheiten Insulin', function (response, convo) {
+                convo.say('ok entered ' + Humalog +' Einheiten Insulin.', function (response, convo) {
                    
                     convo.next();
                 });
