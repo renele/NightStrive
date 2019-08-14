@@ -5,7 +5,6 @@ controller.hears([/^INJECT.*$/], 'direct_message,direct_mention', function (bot,
 console.log(message)
 var word = message.text.split(" ")
 var Humalog = word[1]
-var Abasaglar = word[2]
 console.log()
         bot.startConversation(message, function (err, convo) {
             convo.say('Ok lets puts this into the diary');
@@ -19,14 +18,13 @@ console.log()
             body: 
              { 
                enteredBy: 'botKit',
-               eventType: 'Meal Bolus',
+               eventType: 'Correction Bolus',
                insulin: Humalog,
-               insulinName": 'humalog',
-               insulinCurve": 'bilinear',
-               insulinID": '1556899407954052d675cdf6',
+               insulinName: 'humalog',
+               insulinCurve: 'bilinear',
+               insulinID: '1556899407954052d675cdf6',
                insulinType: 'mittelschnell wirkend',
-               
-               },
+                },
             json: true };
           
           request(options, function (error, response, body) {
@@ -36,12 +34,11 @@ console.log()
           });
               
                 
-                convo.say('ok entered ' + Humalog +' Einheiten Insulin.', function (response, convo) {
+                convo.say('ok entered ' + Humalog +' Einheiten Insulin in your Diary.', function (response, convo) {
                    
                     convo.next();
                 });
     
               })
         });
-
     };
