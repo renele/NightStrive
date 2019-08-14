@@ -1,6 +1,6 @@
 var request = require('request');
 module.exports = function (controller) {
-controller.hears([/^1FEAST.*$/], 'direct_message,direct_mention', function (bot, message) {
+controller.hears([/^INJECT.*$/], 'direct_message,direct_mention', function (bot, message) {
 //var word = message.response.log.message
 console.log(message)
 var word = message.text.split(" ")
