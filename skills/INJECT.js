@@ -17,9 +17,15 @@ console.log()
                'Content-Type': 'application/json',
                'API-SECRET': '75c5b0956523255b2c400b8174e58221f9633c02' },
             body: 
-             { enteredBy: 'botKit',
+             { 
+               enteredBy: 'botKit',
                eventType: 'Meal Bolus',
                insulin: Humalog,
+               insulinName": 'humalog',
+               insulinCurve": 'bilinear',
+               insulinID": '1556899407954052d675cdf6',
+               insulinType: 'mittelschnell wirkend',
+               
                },
             json: true };
           
