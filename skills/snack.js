@@ -19,7 +19,7 @@ console.log()
             body: 
              { enteredBy: 'botKit',
                eventType: 'Carb Correction',
-               insulin: CARBS,
+               carbs: CARBS,
                notes: notiz,
                },
             json: true };
