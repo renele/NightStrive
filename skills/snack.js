@@ -32,7 +32,7 @@ console.log()
           });
               
                 
-                convo.say('ok entered ' + CARBS +' Gramm and Kohlenhydraten to your Diary.', function (response, convo) {
+                convo.say('ok entered ' + CARBS +' gramm and carbohydrates to your Diary.', function (response, convo) {
                    
                     convo.next();
                 });
