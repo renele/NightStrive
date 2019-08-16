@@ -20,7 +20,7 @@ console.log()
              { enteredBy: 'botKit',
                eventType: 'Carb Correction',
                carbs: CARBOS,
-               carbDelayTime: 20,
+               carbDelayTime: 5,
                notes: notiz,
                },
             json: true };
@@ -32,7 +32,7 @@ console.log()
           });
               
                 
-                convo.say('ok entered ' + CARBS +' gramm and carbohydrates to your Diary.', function (response, convo) {
+                convo.say('ok entered ' + CARBOS +' gramm and carbohydrates to your Diary.', function (response, convo) {
                    
                     convo.next();
                 });
