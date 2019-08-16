@@ -4,7 +4,7 @@ controller.hears([/^SNACK.*$/], 'direct_message,direct_mention', function (bot, 
 //var word = message.response.log.message
 console.log(message)
 var word = message.text.split(" ")
-var CARBS = word[1]
+var CARBOS = word[1]
 var notiz = word[2]
 console.log()
         bot.startConversation(message, function (err, convo) {
@@ -19,7 +19,8 @@ console.log()
             body: 
              { enteredBy: 'botKit',
                eventType: 'Carb Correction',
-               carbs: CARBS,
+               carbs: CARBOS,
+               carbDelayTime: 20,
                notes: notiz,
                },
             json: true };
