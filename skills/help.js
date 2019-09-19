@@ -10,6 +10,7 @@ module.exports = function (controller) {
         text += "\n- " + bot.appendMention(message, "BG") + ": see current Sugar Level";
         text += "\n- " + bot.appendMention(message, "REPORT") + ": see last to Days of BG Levels";
         text += "\n- " + bot.appendMention(message, "SNACK") + ": Enter amount of Carbs to add to DB";
+        text += "\n- " + bot.appendMention(message, "FOOD") + ": Enter food to fetch Carbs per 100g";
         text += "\n\nI also understand some Demo Functions:";
         text += "\n- " + bot.appendMention(message, "NASA") + ": see NASA Image of the DAY";
         text += "\n- " + bot.appendMention(message, "NASAURL") + ": see NASA Image of the DAY unincluding link";
