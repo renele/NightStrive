@@ -58,10 +58,10 @@ module.exports = function (controller) {
          console.log(CARBS + ' resolved promise 2')
                   if (CARBS[0] != "NF" ) {
                     console.log (CARBS[0])
-          convo.say('ok ' + eat + ' hat ' + CARBS[0] + ' gramm an Kohlenhydraten!' )
+          convo.say('ok ' + eat + ' hat ' + CARBS[0] + ' gramm an Kohlenhydraten (per 100g)!' )
          }
          else{
-          convo.say('ok eintrag nicht direkt gefunden aber folgenden Vorschlag ' + eat + ' hat ' + CARBS[1] + ' gramm an Kohlenhydraten!')
+          convo.say('ok eintrag nicht direkt gefunden aber folgenden Vorschlag ' + eat + ' hat ' + CARBS[1] + ' gramm an Kohlenhydraten (per 100g)!')
          }
 
 
