@@ -2,6 +2,7 @@ var request = require('request-promise');
 var today = new Date().toISOString();
 var CARBS; 
 var CARBS1;
+var LABEL; 
 var edemapost = function (eat){
   console.log("starting foodDB connection")
   console.log(eat + ' inside edemapost 1')
@@ -31,16 +32,15 @@ var edemapost = function (eat){
         resolve([CARBS,"NF"]);
       }           
      else if(Array.isArray(data.hints) && data.hints.length){
-     var CARBS = data['hints'][0]['food']['nutrients']['CHOCDF'] 
+     var CARBS = data['hints'][0]['food']['nutrients']['CHOCDF']
+     var LABEL = data['hints'][0]['food']['label'] 
       console.log(CARBS + '  inside edemafunction 3'); 
-      resolve(["NF",CARBS]);
+      console.log(LABEL + '  inside edemafunction 4');
+      resolve(["NF",CARBS,LABEL]);
      }
      else {reject('not found')
-
      }
-  
-                   })
-              
+                  })
             });
         };
 module.exports = function (controller) {
@@ -61,13 +61,11 @@ module.exports = function (controller) {
           convo.say('ok ' + eat + ' hat ' + CARBS[0] + ' gramm an Kohlenhydraten (per 100g)!' )
          }
          else{
-          convo.say('ok eintrag nicht direkt gefunden aber folgenden Vorschlag ' + eat + ' hat ' + CARBS[1] + ' gramm an Kohlenhydraten (per 100g)!')
+          convo.say('ok eintrag '+ eat + ' nicht direkt gefunden, aber: ' + CARBS[2] + ' hat ' + CARBS[1] + ' gramm an Kohlenhydraten (per 100g)!')
          }
-
-
       }).catch(err => {
         console.log(err);
-        convo.say('something went wrong please check the logs -> https://dashboard.heroku.com/apps/rkt1d' + err)
+        convo.say('ok we could not find the food you were looking to doublecheck see here -> https://dashboard.heroku.com/apps/rkt1d ' + err)
       });
     });
 });
